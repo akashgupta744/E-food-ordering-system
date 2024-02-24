@@ -56,8 +56,26 @@ class Dish(models.Model):
     def __str__(self):
         return self.name
     class Meta:
-        
         verbose_name_plural = 'Dish Table'
+
+class Dish_cart(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    name = models.ForeignKey(Dish,on_delete=models.CASCADE)
+    counter = models.PositiveIntegerField(default=0)
+    ammount = models.PositiveBigIntegerField(null=True)
+    def __str__(self):
+        return self.name.name
+
+class Order_history(models.Model):
+    order_status = [('Pending','Pending'),('Packed','Packed'),('Delivered','Delivered'),('Cancel','Cancel')]
+    user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    product = models.ForeignKey(Dish,on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField()
+    ammount = models.PositiveBigIntegerField()
+    status = models.CharField(max_length=200,choices=order_status,default='Pending')
+    date = models.DateField(auto_now=True)
+    def __str__(self):
+        return self.user.first_name
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -71,3 +89,6 @@ class Profile(models.Model):
     
     class Meta:
         verbose_name_plural = 'Profile Table'
+
+
+        

@@ -24,7 +24,7 @@ urlpatterns = [
     path('',index,name='index'),
     path('blog/',blog,name='blog'),
     path('booking/',booking,name='booking'),
-    path('feature/',feature,name='feature'),
+    path('orderhistory/',orderhistory,name='orderhistory'),
     path('menu/',menu,name='menu'),
     path('single/',single,name='single'),
     path('contact/',contact_us,name='contact'),
@@ -32,7 +32,14 @@ urlpatterns = [
     path('team/',team,name='team'),
     path('register/',register,name='register'),
     path('login/',signin,name='login'),
+    path('cart/<int:id>',cart,name='cart'),
+    path('cart/',cartall,name='cart'),
     path('dish/<int:id>',dish,name='dish'),
-    
+    path('qntyadd/<int:id>',qntyadd,name='qntyadd'),
+    path('qntysub/<int:id>',qntysub,name='qntysub'),
+    path('remove/<int:id>',removedish,name='remove'),
+    path('order/',order,name='order'),
+    path('payment/',payment,name='payment'),
+    path('logout/',logout_user,name='logout'),
     
 ] + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

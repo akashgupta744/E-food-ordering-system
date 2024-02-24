@@ -24,12 +24,12 @@
         <div class="card-body">
           <h5 class="card-title text-center">{{d.name}}</h5>
           <p class="card-text text-dark text-center">MRP - <s>{{d.price}}</s></p>
-          <p class="card-text text-dark text-center">disc - {{d.discount_price}}</p>
+          <p class="card-text text-dark text-center">Disc - {{d.discount_price}}  </p>
           <div class="d-flex justify-content-center">
             {% if d.is_available %}
-            <a href="#" class="btn btn-primary">Add</a>
+            <a href="{% url 'cart' d.id %}" class="btn btn-primary">Add</a>
             {% else %}
-            <a href="" class="btn btn-danger">Not available</a>
+            <a href="#" class="btn btn-danger">Not available</a>
             {% endif %}
             
         </div>
