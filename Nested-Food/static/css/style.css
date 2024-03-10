@@ -32,6 +32,8 @@ a:focus {
     text-decoration: none;
 }
 
+
+
 .btn.custom-btn {
     padding: 12px 25px;
     font-family: 'Nunito', sans-serif;
@@ -426,7 +428,7 @@ a:focus {
 /*******************************/
 .section-header {
     position: relative;
-    margin-bottom: 45px;
+    /* margin-bottom: 45px; */
 }
 
 .section-header p {

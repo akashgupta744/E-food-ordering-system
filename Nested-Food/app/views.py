@@ -73,6 +73,7 @@ def register(request):
                 d['status1'] = f"Dear {name}, Register Successfully !!"
             except :
                 d['status2'] = f"Dear {name},This email already exists !!"
+            return redirect('/login')
         else:
             messages.warning(request,'Passwords do not match!!')
             return redirect('/register')
